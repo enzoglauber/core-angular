@@ -1,0 +1,14 @@
+<div [ngClass]="cssPrefix">
+  <und-checkbox
+    *ngFor="let checkboxItem of checkboxItems"
+    (valueChangesGroup)="onCheckboxValueChanges($event)"
+    [id]="checkboxItem.id"
+    [checkboxValue]="checkboxItem.value"
+    [checkboxName]="groupName"
+    [isBlock]="layout === 'card'"
+    [noBullet]="noBullet"
+  >
+    <strong>{{checkboxItem.label}}</strong> <br/>
+    {{checkboxItem.description}}
+  </und-checkbox>
+</div>

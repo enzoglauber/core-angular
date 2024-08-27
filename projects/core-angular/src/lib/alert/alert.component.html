@@ -1,0 +1,21 @@
+<div
+  [ngClass]="rootClasses"
+  *ngIf="isVisible"
+>
+  <und-modal
+    [isVisible]="isVisible"
+    [noHeader]="true"
+  >
+    <und-spacer>
+      <div [class]="cssPrefix+'__body'">
+        <h2 *ngIf="title" [class]="cssPrefix+'__title'">{{ title }}</h2>
+        <p *ngIf="message" [class]="cssPrefix+'__message'">{{ message }}</p>
+        <div [class]="cssPrefix+'__icon'">
+          <und-done-icon></und-done-icon>
+        </div>
+      </div>
+    </und-spacer>
+
+    <und-button type="primary" [block]="true" (click)="onOkClick()">{{ okText }}</und-button>
+  </und-modal>
+</div>

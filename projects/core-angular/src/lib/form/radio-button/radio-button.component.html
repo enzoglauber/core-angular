@@ -1,0 +1,13 @@
+<label [ngClass]="cssClassNames">
+  <input
+    [id]="id"
+    #inputElement
+    type="radio"
+    (change)="onValueChange(inputElement.checked, inputElement.value)"
+    [class]="cssPrefix+'__input'"
+    [name]="radioName"
+    [value]="radioValue"
+  />
+  <span [class]="cssPrefix+'__marker'"></span>
+  <div [class]="cssPrefix+'__content'"><ng-content></ng-content></div>
+</label>

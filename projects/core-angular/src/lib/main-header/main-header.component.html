@@ -1,0 +1,38 @@
+<header
+  [ngClass]="rootClasses"
+>
+  <div [class]="cssPrefix+'__logo'">
+    <a href="javascript:void(0)" [routerLink]="['/dashboard']" class="link-logo">
+      <und-unidas-logo-icon></und-unidas-logo-icon>
+    </a> 
+  </div>
+
+  <div [class]="cssPrefix+'__separator'"></div>
+
+  <h1 [class]="cssPrefix+'__title'">
+    {{ title }}
+  </h1>
+
+  <div [class]="cssPrefix+'__extra-info-and-menu-button'">
+    <div [class]="cssPrefix+'__extra-primary-information'">
+      <und-p><ng-content select="[extraInformation]"></ng-content></und-p>
+    </div>
+
+    <div [class]="cssPrefix+'__menu-icon'">
+      <und-button (click)="toogleMenuVisibility()" type="none">
+        <und-menu-outlined-icon></und-menu-outlined-icon>
+      </und-button>
+    </div>
+  </div>
+
+  <div [class]="cssPrefix+'__menu-overlay'">
+    <nav [class]="cssPrefix+'__menu-navbar'">
+      <ng-content select="[navbar]"></ng-content>
+    </nav>
+    <div [class]="cssPrefix+'__menu-overlay-close-button'">
+      <und-button type="none" (click)="toogleMenuVisibility()">
+        <und-close-icon></und-close-icon>
+      </und-button>
+    </div>
+  </div>
+</header>

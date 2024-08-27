@@ -1,0 +1,25 @@
+<div [formGroup]="form" [ngClass]="cssPrefix">
+  <und-radio-button *ngFor="let radioItem of radioItems" formControlName="radiosGroup" [radioValue]="radioItem.value"
+    [radioName]="groupName" [isBlock]="layout === 'card'" [noBullet]="noBullet">
+    <div *ngIf="layout !== 'card'; else cardLayoutBlock">
+      {{radioItem.label}}
+      <div *ngIf="radioItem.extraInfo.length" [ngClass]="cssPrefix+'__extra-info'">
+        <p [ngClass]="cssPrefix+'__extra-info-item'" *ngFor="let extraInfo of radioItem.extraInfo">
+          <strong [class]="appPrefix+'-text-color-primary '">{{extraInfo.title}}</strong>
+          <span style="line-break: anywhere;">&nbsp;{{extraInfo.description}}</span>
+        </p>
+      </div>
+    </div>
+    <ng-template #cardLayoutBlock>
+      <div class="und-card">
+        <h2 *ngIf="radioItem.label">{{radioItem.label}}</h2>
+        <div [ngClass]="cssPrefix+'__extra-info'">
+          <p [ngClass]="cssPrefix+'__extra-info-item'" *ngFor="let extraInfo of radioItem.extraInfo">
+            <strong [class]="appPrefix+'-text-color-primary '">{{extraInfo.title}}</strong><br />
+            <span style="line-break: anywhere;">&nbsp;{{extraInfo.description}}</span>
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </und-radio-button>
+</div>

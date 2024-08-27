@@ -1,0 +1,8 @@
+<div [ngClass]="rootStyleClasses">
+  <div [class]="cssPrefix+'__clickable-area'" (click)="toggleOpenState($event)">
+    <h3 [class]="cssPrefix+'__title'">{{ title }}</h3>
+    <und-p [class]="cssPrefix+'__description'">{{ description }}</und-p>
+    <und-arrow-up-icon [class]="cssPrefix+'__arrow-icon'"></und-arrow-up-icon>
+  </div>
+  <div [class]="cssPrefix+'__content'"><ng-content></ng-content></div>
+</div>

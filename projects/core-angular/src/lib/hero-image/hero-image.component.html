@@ -1,0 +1,43 @@
+<section class="und-hero-image" [ngStyle]="{'background-image': bgImageToStyle}">
+  <div [ngClass]="{
+    'und-hero-image__backdrop': true,
+    'und-hero-image__backdrop--is-blue': backdropType == backdropTypes.BLUE
+  }"></div>
+  <div class="und-hero-image__content">
+    <ng-container *ngIf="animationType === animationTypes.FADEIN">
+      <div [ngClass]="fadeoutClassNames">
+        <ng-content select="[fadeout]"></ng-content>
+      </div>
+      <div [ngClass]="fadeinClassNames">
+        <ng-content select="[fadein]"></ng-content>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!animationType">
+      <ng-content></ng-content>
+    </ng-container>
+  </div>
+
+  <p class="und-text-version" (click)="openChangelog()">Notas de atualização - {{ version }}</p>
+
+  <div class="modal-text-version" *ngIf="changelogModal" (click)="openChangelog()">
+    <div class="box-text-version" style="width: 300px; height: 300px;overflow: auto;">
+      <p class="box-title" style="font-weight: bold;">Notas de atualização</p>
+      <div *ngFor="let changelog of changelogs">
+        <p class="box-title" style="justify-content: flex-start;">
+          {{changelog}}
+        </p>
+      </div>
+      <!-- <p class="box-title" style="justify-content: flex-start;">- Relatório de Reservas, Contrato e Fatura exibidos
+        apenas no portal novo.</p>
+      <p class="box-title" style="justify-content: flex-start;">- Nova validação no campo CPF da tela de cadastro de
+        usuário.</p>
+      <p class="box-title" style="justify-content: flex-start;">- Novas informações enviadas aos chamados do Topdesk.
+      </p>
+      <p class="box-title" style="justify-content: flex-start;">- Boleto e Fatura podem ser baixados no mesmo botão na
+        modal de multas.</p>
+      <p class="box-title" style="justify-content: flex-start;">- Exibição do operador logado nas ações feitas na
+        reserva e contrato.</p> -->
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,8 @@
+<aside [ngClass]="rootClassNames" [style.width]="width && width+'px'">
+  <div [class]="cssPrefix+'__mobile-toggle-button'">
+    <a href="#" (click)="toggleVisibility($event)"><und-arrow-up-icon></und-arrow-up-icon></a>
+  </div>
+  <div [class]="cssPrefix+'__content'">
+    <ng-content></ng-content>
+  </div>
+</aside>

@@ -1,0 +1,14 @@
+<div
+  [ngClass]="{
+     'und-boxed-content': true,
+     'und-boxed-content--is-small': size === boxAvailableSizes.SMALL,
+     'und-boxed-content--is-medium': size === boxAvailableSizes.MEDIUM,
+     'und-boxed-content--is-large': size === boxAvailableSizes.LARGE,
+     'und-boxed-content--is-shaded': isShaded,
+     'und-boxed-content--has-small-shadow': shadowSize === boxAvailableShadowSizes.SMALL,
+     'und-boxed-content--has-no-padding': noPadding
+  }"
+  [style.max-width.px]="maxWidth"
+>
+  <ng-content></ng-content>
+</div>

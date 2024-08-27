@@ -1,0 +1,23 @@
+<section
+  [ngClass]="rootClasses"
+  *ngIf="isVisible"
+>
+  <div [class]="cssPrefix+'__content'">
+    <und-boxed-content size="small" [shaded]="true" shadowSize="small" [noPadding]="true">
+      <div *ngIf="!noHeader" [class]="cssPrefix+'__content-header'">
+        <h2 [class]="cssPrefix+'__header-title'">{{title}}</h2>
+        <a
+          *ngIf="!noCloseButton"
+          [class]="cssPrefix+'__header-close-button'"
+          (click)="onCloseHandler()"
+        >
+          <und-close-icon></und-close-icon>
+        </a>
+      </div>
+      <div [class]="cssPrefix+'__content-body'">
+        <ng-content></ng-content>
+      </div>
+    </und-boxed-content>
+  </div>
+  <div [class]="appPrefix+'-backdrop'"></div>
+</section>

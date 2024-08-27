@@ -1,0 +1,15 @@
+<label [ngClass]="cssClassNames">
+  <input
+    [id]="id"
+    #inputElement
+    type="checkbox"
+    (change)="onValueChange(inputElement.checked, inputElement.value, inputElement.id)"
+    [class]="cssPrefix+'__input'"
+    [name]="checkboxName"
+    [value]="checkboxValue"
+    [checked]="isChecked"
+    [disabled]="disabled"
+  />
+  <span [class]="cssPrefix+'__marker'"></span>
+  <div [class]="cssPrefix+'__content'"><ng-content></ng-content></div>
+</label>

@@ -1,0 +1,12 @@
+<button
+  [type]="htmlType"
+  [disabled]="buttonIsDisabled"
+  [ngClass]="buttonClasses"
+  (click)="onClickHandler()"
+>
+  <span class="und-button__spin" *ngIf="isSpinning">
+    <und-spinner size="small"></und-spinner>
+  </span>
+  <ng-content></ng-content>
+</button>
+
