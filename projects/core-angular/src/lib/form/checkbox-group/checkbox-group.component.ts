@@ -1,8 +1,8 @@
-import {Component, ElementRef, forwardRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {BaseComponent} from '../../base.component';
-import {CoreAngularService} from '../../core-angular.service';
-import {checkboxGroupItemsType} from './types/checkbox-group-items.type';
+import { Component, forwardRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BaseComponent } from '../../base.component';
+import { CoreAngularService } from '../../core-angular.service';
+import { checkboxGroupItemsType } from './types/checkbox-group-items.type';
 
 @Component({
   selector: 'und-checkbox-group',
@@ -25,7 +25,7 @@ export class CheckboxGroupComponent extends BaseComponent implements OnInit, OnC
   layout = 'normal';
 
   @Input('items')
-  checkboxItems: checkboxGroupItemsType[];
+  checkboxItems: checkboxGroupItemsType[] | undefined;
 
   @Input('noBullet')
   noBullet = false;
@@ -75,22 +75,22 @@ export class CheckboxGroupComponent extends BaseComponent implements OnInit, OnC
     return this._value;
   }
 
-  set value(v) {
+  set value(v: any) {
     this._value = v;
     this.onChange(this._value);
     this.onTouched();
   }
 
-  onValueChange(value): void {
+  onValueChange(value: any): void {
 
     this.value = value;
   }
 
-  setNewValue(value): void {
+  setNewValue(value: any): void {
     // this.form.get('checkboxGroup').setValue(value);
   }
 
-  onCheckboxValueChanges({id, value, isChecked}): void {
+  onCheckboxValueChanges({ id, value, isChecked }: any): void {
     const previousValues = this.value;
     if (isChecked) {
       this.value = [...previousValues, value];

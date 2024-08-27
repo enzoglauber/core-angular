@@ -3,8 +3,5 @@
   "dest": "../../dist/core-angular",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "whitelistedNonPeerDependencies": [
-    "."
-  ]
+  }
 }

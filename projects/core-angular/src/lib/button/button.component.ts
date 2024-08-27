@@ -1,7 +1,7 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BaseComponent } from "../base.component";
 import { ButtonSizesEnum } from './enum/button-sizes.enum';
-import {BaseComponent} from "../base.component";
-import {ButtonTypesEnum} from "./enum/button-types.enum";
+import { ButtonTypesEnum } from "./enum/button-types.enum";
 
 @Component({
   selector: 'und-button',
@@ -11,7 +11,7 @@ export class ButtonComponent extends BaseComponent {
   @Output() onClick = new EventEmitter();
 
   @Input('spinning')
-  isSpinning: boolean;
+  isSpinning: boolean | undefined;
 
   @Input()
   htmlType = 'button';
@@ -23,13 +23,13 @@ export class ButtonComponent extends BaseComponent {
   buttonType: string = ButtonTypesEnum.SECONDARY;
 
   @Input('outline')
-  buttonIsOutline: boolean;
+  buttonIsOutline: boolean | undefined;
 
   @Input('block')
-  buttonIsBlock: boolean;
+  buttonIsBlock: boolean | undefined;
 
   @Input('disabled')
-  buttonIsDisabled: boolean;
+  buttonIsDisabled: boolean | undefined;
 
   constructor() {
     super('button');

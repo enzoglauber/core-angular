@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {BaseComponent} from "../../base.component";
+import { Component, Input, OnInit } from '@angular/core';
+import { BaseComponent } from "../../base.component";
 
 @Component({
   selector: 'und-aside',
@@ -7,7 +7,7 @@ import {BaseComponent} from "../../base.component";
 })
 export class AsideComponent extends BaseComponent implements OnInit {
   @Input('width')
-  width: number;
+  width: number | undefined;
 
   isOpen = false;
 

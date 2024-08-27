@@ -3,15 +3,13 @@ import {
   ElementRef,
   forwardRef,
   Input,
-  OnChanges,
   OnInit,
   Renderer2,
-  SimpleChanges,
   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {BaseComponent} from "../../base.component";
-import {CoreAngularService} from "../../core-angular.service";
+import { BaseComponent } from "../../base.component";
+import { CoreAngularService } from "../../core-angular.service";
 
 @Component({
   selector: 'und-radio-button',
@@ -25,18 +23,18 @@ import {CoreAngularService} from "../../core-angular.service";
   ]
 })
 export class RadioButtonComponent extends BaseComponent implements OnInit, ControlValueAccessor {
-  private _value;
+  private _value: any;
   id: string;
 
   // @ts-ignore
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  inputElement: ElementRef | undefined;
 
   @Input('radioValue')
   radioValue: any;
 
   @Input('radioName')
-  radioName: string;
+  radioName: string | undefined;
 
   @Input('isBlock')
   isBlock = false;
@@ -75,7 +73,7 @@ export class RadioButtonComponent extends BaseComponent implements OnInit, Contr
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._renderer.setProperty(this.inputElement.nativeElement, 'disabled',  isDisabled);
+    this._renderer.setProperty(this.inputElement?.nativeElement, 'disabled', isDisabled);
   }
 
   onChange: any = () => { };
@@ -92,7 +90,7 @@ export class RadioButtonComponent extends BaseComponent implements OnInit, Contr
     this.onTouched();
   }
 
-  onValueChange(isChecked, value) {
+  onValueChange(isChecked: boolean, value: any) {
     if (!isChecked) {
       return;
     }
@@ -100,7 +98,7 @@ export class RadioButtonComponent extends BaseComponent implements OnInit, Contr
     this.value = value;
   }
 
-  setChecked(value) {
+  setChecked(value: any) {
     if (!this.inputElement) {
       return;
     }

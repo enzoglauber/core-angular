@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {BaseComponent} from "../base.component";
+import { Component, Input, OnInit } from '@angular/core';
+import { BaseComponent } from "../base.component";
 
 @Component({
   selector: 'und-expandable-topic',
@@ -9,13 +9,13 @@ export class ExpandableTopicComponent extends BaseComponent implements OnInit {
   isClosed = false;
 
   @Input()
-  title: string;
+  title: string | undefined;
 
   @Input()
-  description: string;
+  description: string | undefined;
 
   @Input()
-  startOpen: boolean;
+  startOpen: boolean | undefined;
 
   constructor() {
     super('expandable-topic');

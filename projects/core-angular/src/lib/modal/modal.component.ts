@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {BaseComponent} from '../base.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'und-modal',
@@ -9,19 +9,19 @@ export class ModalComponent extends BaseComponent {
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
   @Input('noTitle')
-  noTitle: boolean;
+  noTitle: boolean | undefined;
 
   @Input('noCloseButton')
-  noCloseButton: boolean;
+  noCloseButton: boolean | undefined;
 
   @Input('noHeader')
-  noHeader: boolean;
+  noHeader: boolean | undefined;
 
   @Input('title')
-  title: string;
+  title: string | undefined;
 
   @Input('isVisible')
-  isVisible: boolean;
+  isVisible: boolean | undefined;
 
   constructor() {
     super('modal');

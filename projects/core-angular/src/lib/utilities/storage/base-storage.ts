@@ -23,11 +23,13 @@ export class BaseStorage implements IStorageService {
     this._storage.removeItem(key);
   }
 
-  getData<T=object>(key: string): T {
+  getData<T = object>(key: string): T {
     if (!key) {
       throw new Error('key is required!');
     }
 
-    return <T>JSON.parse(this._storage.getItem(key));
+    const item = this._storage.getItem(key);
+    return item ? <T>JSON.parse(item) : null as any;
   }
+
 }

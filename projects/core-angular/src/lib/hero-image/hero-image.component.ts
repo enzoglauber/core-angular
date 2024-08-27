@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { HeroImageBackdropTypesEnum } from './enum/hero-image-backdrop-types.enum';
-import { HeroImageAnimationTypesEnum } from "./enum/hero-image-animation-types.enum";
 import { CoreAngularService } from '../core-angular.service';
+import { HeroImageAnimationTypesEnum } from "./enum/hero-image-animation-types.enum";
+import { HeroImageBackdropTypesEnum } from './enum/hero-image-backdrop-types.enum';
 
 @Component({
   selector: 'und-hero-image',
@@ -9,8 +9,8 @@ import { CoreAngularService } from '../core-angular.service';
 })
 export class HeroImageComponent implements OnInit, OnChanges {
 
-  private isFadeinAnimating: boolean;
-  private isFadeoutAnimating: boolean;
+  private isFadeinAnimating: boolean | undefined;
+  private isFadeoutAnimating: boolean | undefined;
 
   changelogModal: boolean = false;
 
@@ -31,20 +31,20 @@ export class HeroImageComponent implements OnInit, OnChanges {
   ]
 
   @Input('animation')
-  animationType: HeroImageAnimationTypesEnum;
+  animationType: HeroImageAnimationTypesEnum | undefined;
 
   @Input('animationDelay')
   animationDelay = 3000;
 
   @Input('backdropType')
-  backdropType: HeroImageBackdropTypesEnum
+  backdropType: HeroImageBackdropTypesEnum | undefined
 
   @Input('backgroundImage')
   bgImage: string = '';
 
   @Input('versionApp') version: string = '';
 
-  bgImageToStyle: string;
+  bgImageToStyle: string | undefined;
 
   constructor(private coreAngularService: CoreAngularService) { }
 

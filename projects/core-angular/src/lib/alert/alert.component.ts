@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {BaseComponent} from "../base.component";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BaseComponent } from "../base.component";
 
 @Component({
   selector: 'und-alert',
@@ -7,16 +7,16 @@ import {BaseComponent} from "../base.component";
 })
 export class AlertComponent extends BaseComponent {
   @Input('title')
-  title: string;
+  title: string | undefined;
 
   @Input('okText')
   okText = 'Continuar';
 
   @Input('message')
-  message: string;
+  message: string | undefined;
 
   @Input('isVisible')
-  isVisible: boolean;
+  isVisible: boolean | undefined;
 
   @Output() ok = new EventEmitter();
 

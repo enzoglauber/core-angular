@@ -1,7 +1,7 @@
-import {Component, ElementRef, EventEmitter, forwardRef, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {BaseComponent} from '../../base.component';
-import {CoreAngularService} from '../../core-angular.service';
+import { BaseComponent } from '../../base.component';
+import { CoreAngularService } from '../../core-angular.service';
 
 @Component({
   selector: 'und-checkbox',
@@ -15,26 +15,26 @@ import {CoreAngularService} from '../../core-angular.service';
   ]
 })
 export class CheckboxComponent extends BaseComponent implements OnInit, ControlValueAccessor {
-  private _value;
+  private _value: any;
 
   @Input()
-  id: string;
+  id: string | undefined;
 
   // @ts-ignore
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  inputElement: ElementRef | undefined;
 
   @Input('checkboxValue')
   checkboxValue: any;
 
   @Input('checkboxName')
-  checkboxName: string;
+  checkboxName: string | undefined;
 
   @Input('isChecked')
-  isChecked: boolean;
+  isChecked: boolean | undefined;
 
   @Input('disabled')
-  disabled: boolean;
+  disabled: boolean | undefined;
 
   @Input('isBlock')
   isBlock = false;
@@ -77,7 +77,7 @@ export class CheckboxComponent extends BaseComponent implements OnInit, ControlV
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._renderer.setProperty(this.inputElement.nativeElement, 'disabled',  isDisabled);
+    this._renderer.setProperty(this.inputElement?.nativeElement, 'disabled', isDisabled);
   }
 
   onChange: any = () => { };
@@ -94,16 +94,16 @@ export class CheckboxComponent extends BaseComponent implements OnInit, ControlV
     this.onTouched();
   }
 
-  onChangeByGroup(id, value, isChecked: boolean): void {
-    this.valueChangesGroup.emit({id, value, isChecked});
+  onChangeByGroup(id: any, value: any, isChecked: boolean): void {
+    this.valueChangesGroup.emit({ id, value, isChecked });
   }
 
-  onValueChange(isChecked, value, id): any {
+  onValueChange(isChecked: boolean, value: any, id: any): any {
     this.onChangeByGroup(id, value, isChecked);
     this.value = this.checkboxValue ? value : isChecked;
   }
 
-  setChecked(value): any {
+  setChecked(value: any): any {
     if (!this.inputElement) {
       return;
     }

@@ -1,8 +1,8 @@
-import {Component, ElementRef, forwardRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {BaseComponent} from "../../base.component";
-import {CoreAngularService} from "../../core-angular.service";
-import {radioGroupItemsType} from "./types/radio-group-items.type";
+import { Component, forwardRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { ControlValueAccessor, FormBuilder, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BaseComponent } from "../../base.component";
+import { CoreAngularService } from "../../core-angular.service";
+import { radioGroupItemsType } from "./types/radio-group-items.type";
 
 @Component({
   selector: 'und-radio-button-group',
@@ -16,7 +16,7 @@ import {radioGroupItemsType} from "./types/radio-group-items.type";
   ]
 })
 export class RadioButtonGroupComponent extends BaseComponent implements OnInit, ControlValueAccessor {
-  private _value;
+  private _value: any;
   id: string;
   groupName: string;
   form: any;
@@ -25,7 +25,7 @@ export class RadioButtonGroupComponent extends BaseComponent implements OnInit, 
   layout: string = 'normal';
 
   @Input('items')
-  radioItems: radioGroupItemsType[];
+  radioItems: radioGroupItemsType[] | undefined;
 
   @Input('noBullet')
   noBullet = false;
@@ -45,7 +45,7 @@ export class RadioButtonGroupComponent extends BaseComponent implements OnInit, 
   }
 
   ngOnInit() {
-    this.form.get('radiosGroup').valueChanges.subscribe(value => {
+    this.form.get('radiosGroup').valueChanges.subscribe((value: any) => {
       this.onValueChange(value);
     })
   }
@@ -81,11 +81,11 @@ export class RadioButtonGroupComponent extends BaseComponent implements OnInit, 
     this.onTouched();
   }
 
-  onValueChange(value) {
+  onValueChange(value: any) {
     this.value = value;
   }
 
-  setNewValue(value) {
+  setNewValue(value: any) {
     this.form.get('radiosGroup').setValue(value);
   }
 }

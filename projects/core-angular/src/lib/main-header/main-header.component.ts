@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {BaseComponent} from "../base.component";
+import { Component, Input } from '@angular/core';
+import { BaseComponent } from "../base.component";
 
 @Component({
   selector: 'und-main-header',
@@ -7,7 +7,7 @@ import {BaseComponent} from "../base.component";
 })
 export class MainHeaderComponent extends BaseComponent {
   @Input('title')
-  title: string;
+  title: string | undefined;
   isOpen = false;
 
   constructor() {
