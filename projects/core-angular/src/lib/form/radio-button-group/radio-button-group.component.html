@@ -3,7 +3,7 @@
     [radioName]="groupName" [isBlock]="layout === 'card'" [noBullet]="noBullet">
     <div *ngIf="layout !== 'card'; else cardLayoutBlock">
       {{radioItem.label}}
-      <div *ngIf="radioItem.extraInfo.length" [ngClass]="cssPrefix+'__extra-info'">
+      <div *ngIf="radioItem?.extraInfo?.length" [ngClass]="cssPrefix+'__extra-info'">
         <p [ngClass]="cssPrefix+'__extra-info-item'" *ngFor="let extraInfo of radioItem.extraInfo">
           <strong [class]="appPrefix+'-text-color-primary '">{{extraInfo.title}}</strong>
           <span style="line-break: anywhere;">&nbsp;{{extraInfo.description}}</span>

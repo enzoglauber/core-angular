@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BaseComponent } from '../base.component';
+import { BoxedContentSizesEnum } from '../boxed-content';
+import { BoxedContentShadowSizesEnum } from '../boxed-content/enum/boxed-content-shadow-sizes.enum';
 
 @Component({
   selector: 'und-modal',
@@ -25,6 +27,14 @@ export class ModalComponent extends BaseComponent {
 
   constructor() {
     super('modal');
+  }
+
+  get BoxedContentSizes() {
+    return BoxedContentSizesEnum;
+  }
+
+  get BoxedContentShadowSizes() {
+    return BoxedContentShadowSizesEnum;
   }
 
   onCloseHandler(): void {

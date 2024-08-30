@@ -3,7 +3,7 @@
   *ngIf="isVisible"
 >
   <div [class]="cssPrefix+'__content'">
-    <und-boxed-content size="small" [shaded]="true" shadowSize="small" [noPadding]="true">
+    <und-boxed-content [size]="BoxedContentSizes.SMALL" [shaded]="true" [shadowSize]="BoxedContentShadowSizes.SMALL" [noPadding]="true">
       <div *ngIf="!noHeader" [class]="cssPrefix+'__content-header'">
         <h2 [class]="cssPrefix+'__header-title'">{{title}}</h2>
         <a
