@@ -14,7 +14,7 @@ export class BoxedContentComponent implements OnInit {
   maxWidth: number | undefined;
 
   @Input('size')
-  size: BoxedContentSizesEnum = BoxedContentSizesEnum.MEDIUM;
+  size: BoxedContentSizesEnum | string = BoxedContentSizesEnum.MEDIUM;
 
   @Input('shadowSize')
   shadowSize: BoxedContentShadowSizesEnum = BoxedContentShadowSizesEnum.MEDIUM;
