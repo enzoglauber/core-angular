@@ -17,7 +17,8 @@
     </ng-container>
   </div>
 
-  <p class="und-text-version" (click)="openChangelog()">Notas de atualização - {{ version }}</p>
+  <!-- <p class="und-text-version" (click)="openChangelog()">Notas de atualização - {{ version }}</p> -->
+  <p class="und-text-version">{{ version }}</p>
 
   <div class="modal-text-version" *ngIf="changelogModal" (click)="openChangelog()">
     <div class="box-text-version" style="width: 300px; height: 300px;overflow: auto;">

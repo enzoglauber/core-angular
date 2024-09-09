@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CoreAngularService } from '../core-angular.service';
-import { HeroImageAnimationTypesEnum } from "./enum/hero-image-animation-types.enum";
-import { HeroImageBackdropTypesEnum } from './enum/hero-image-backdrop-types.enum';
+import { HeroImageAnimationTypes, HeroImageAnimationTypesEnum } from "./enum/hero-image-animation-types.enum";
+import { HeroImageBackdropTypes, HeroImageBackdropTypesEnum } from './enum/hero-image-backdrop-types.enum';
 
 @Component({
   selector: 'und-hero-image',
@@ -31,13 +31,13 @@ export class HeroImageComponent implements OnInit, OnChanges {
   ]
 
   @Input('animation')
-  animationType: HeroImageAnimationTypesEnum | undefined;
+  animationType: HeroImageAnimationTypesEnum | HeroImageAnimationTypes | undefined;
 
   @Input('animationDelay')
-  animationDelay = 3000;
+  animationDelay = 1500;
 
   @Input('backdropType')
-  backdropType: HeroImageBackdropTypesEnum | undefined
+  backdropType: HeroImageBackdropTypesEnum | HeroImageBackdropTypes | undefined
 
   @Input('backgroundImage')
   bgImage: string = '';

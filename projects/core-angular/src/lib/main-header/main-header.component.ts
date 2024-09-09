@@ -6,8 +6,8 @@ import { BaseComponent } from "../base.component";
   templateUrl: './main-header.component.html',
 })
 export class MainHeaderComponent extends BaseComponent {
-  @Input('title')
-  title: string | undefined;
+  @Input('title') title: string | undefined;
+  @Input('link-logo') linkLogo: string | any[] = ['/dashboard'];
   isOpen = false;
 
   constructor() {
